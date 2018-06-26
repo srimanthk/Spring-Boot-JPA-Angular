@@ -1,0 +1,23 @@
+<div *ngIf="user">
+    <input type="text" [(ngModel)]="user.firstName" placeholder="firstName" />
+    <input type="text" [(ngModel)]="user.lastName" placeholder="lastName" />
+    <input type="text" [(ngModel)]="user.ssoId" placeholder="ssoId" />
+    <input type="password" [(ngModel)]="user.password" placeholder="password" />
+    <input type="text" [(ngModel)]="user.email" placeholder="email" />
+    <div *ngIf="(!edit) && (roles.length > 0)">
+        <select multiple [(ngModel)]="selectedRoles">
+            Roles:
+            <option *ngFor="let role of roles" [ngValue]="role">{{role.type}}</option>
+        </select>
+    </div>
+    <div *ngIf="edit">
+        <button (click)="editUser()">update User</button>
+    </div>
+    <div *ngIf="!edit">
+        <button (click)="addUser()">Add User</button>
+    </div>
+</div>
+
+<div>
+    <a routerLink="/usersList">Home</a>
+</div>

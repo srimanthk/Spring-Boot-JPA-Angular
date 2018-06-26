@@ -1,0 +1,36 @@
+<div *ngIf="users.length > 0">
+  <div>
+    <span class="lead">List of Users </span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>SSO ID</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.ssoId}}</td>
+        <td>
+          <a routerLink="/editUser/{{user.ssoId}}">edit</a>
+        </td>
+        <td>
+          <button (click)="deleteUser(user)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <a routerLink="/addUser">Add New User</a>
+  </div>
+
+</div>
